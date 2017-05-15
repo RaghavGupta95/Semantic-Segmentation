@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Image Segmentation Demo </title>
+  <meta charset="UTF-8">
+<style>
+img {
+     max-width: 100%;
+     height: auto;
+     width: auto\9; /* ie8 */
+    }
+div {
+ display: inline-block;
+ white-space: nowrap;
+}
+.img1,.img2{
+      width:50%;
+}
+</style>
+</head>
+<body>
+
+<div class="image123">
+  <div class="imgContainer">
+    <img class="middle-img" src="{{url_for('static', filename = infilename)}}" alt="start" />
+    <p>Original Image</p>
+  </div>
+  <div class="imgContainer">
+    <img class="middle-img" src="{{url_for('static', filename = outfilename)}}"  />
+    <p>Segmented Image</p>
+  </div>
+</div>
+<p> Following objects are in this image:{{outdata}} </p>
+
+
+<div>
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(116,64,206);stroke-width:10;stroke:rgb(116,64,206)" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">background</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(118, 215,74);stroke-width:10;stroke:rgb( 118, 215, 74 )" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Aeroplane</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(206, 78, 196);stroke-width:10;stroke:rgb(206,78,196)" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">bicycle</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(206,206,73);stroke-width:10;stroke:rgb( 206,206,73 )" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Bird</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(83,44,121);stroke-width:10;stroke:rgb( 83,44,121 )" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Boat</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(119,216,146);stroke-width:10;stroke:rgb( 119,216,146)" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Bottle</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(193,72,125);stroke-width:10;stroke:rgb(193,72,125)" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Bus</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(123,202,196);stroke-width:10;stroke:rgb(123,202,196)" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Car</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(211,70,58);stroke-width:10;stroke:rgb(211,70,58 )" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Cat</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(121,118,208);stroke-width:10;stroke:rgb(121,118,208)" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Chair</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(214,136,58);stroke-width:10;stroke:rgb(214,136,58)" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Cow</text>
+	  </svg>
+</div>
+<div>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(98,138,174);stroke-width:10;stroke:rgb(98,138,174)" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Dining-table</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(144,122,57);stroke-width:10;stroke:rgb(144,122,57)" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Dog</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(205,165,206);stroke-width:10;stroke:rgb(205,165,206)" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Horse</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(60,80,56);stroke-width:10;stroke:rgb( 60,80,56 )" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Motorbike</text>
+	  </svg>
+
+    <svg width="100" height="25">
+    <rect width="100" height="25" style="margin:0;padding:0;fill:rgb(192,128,128);stroke-width:10;stroke:rgb(192,128,128 )" />
+    <text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Person</text>
+    </svg>
+
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(205,201,153);stroke-width:10;stroke:rgb(205,201,153)" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Potted plant</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(69,45,71);stroke-width:10;stroke:rgb(69,45,71)" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Sheep</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(0, 192, 0);stroke-width:10;stroke:rgb( 0, 192, 0 )" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Sofa</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(192,130,121);stroke-width:10;stroke:rgb(192,130,121)" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">Train</text>
+	  </svg>
+
+		<svg width="100" height="25">
+		<rect width="100" height="25" style="margin:0;padding:0;fill:rgb(114,52,41);stroke-width:10;stroke:rgb(114,52,41)" />
+		<text fill="#ffffff" font-size="11" font-family="Verdana" x="30" y="17">TV/Monitor</text>
+	  </svg>
+</div>
+</body>
+</html>

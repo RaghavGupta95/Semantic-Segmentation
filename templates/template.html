@@ -1,0 +1,11 @@
+<!doctype html>
+<title>Segmented Image</title>
+<h1 style="color:black;">Semantic Image Segmentation Demo</h1>
+{% if filename %}
+<img src="{{url_for('static', filename =  filename)}}" alt="start"/ >
+<p>Segmented Image <p>
+<img src=" alt="start"/ >
+
+{% else %}
+  <h1>no image</h1>
+{% endif %}

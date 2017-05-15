@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>Image Segmentation Demo</title>
+	<h1 align='center' > Image Segmentation Demo </h1>
+    <h2> Chose an image that contains only the following classes of objects: </h2>
+   	 <p> Aeroplane, Bicycle, Bird, Boat, Bottle, Bus, Car , Cat, Chair, Cow, Dining-table, Dog, Horse, Motorbike , Person, Potted-plant, Sheep, Sofa, Train, Tv-monitor </p>
+</head>
+<body>
+
+<form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
+    <input type=file name=photo>
+    <input type="submit">
+</form>
+</body>
+</html>
